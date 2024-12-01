@@ -1,5 +1,7 @@
 # Projects
 
+$f_{w,b}(x) = w \cdot x + b$.
+
 # Linear Regression (One Variable)
 
 ## Outline
