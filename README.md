@@ -1,12 +1,14 @@
-# Linear Regression (One Variable)
+# Linear Regression (Single Variable)
+
+---
 
 ## Outline
 1. [Problem Statement](#1---problem-statement)
 2. [Dataset](#2---dataset)
 3. [Mathematical Concepts](#3---mathematical-concepts)
-4. [Compute Cost](#4---compute-cost)
-5. [Gradient Descent](#5---gradient-descent)
-6. [Learning Parameters Using Batch Gradient Descent](#6---learning-parameters-using-batch-gradient-descent)
+4. [Results](#4---results)
+5. [Summary](#5---summary)
+6. [Conclusion](#6---conclusion)
 
 
 ## 1 - Problem Statement
@@ -18,9 +20,7 @@ Suppose you are the CEO of a restaurant franchise and are considering different 
 - We also have data on cities that are candidates for a new restaurant. 
 - For these cities, we have the city population.
 
-Can we use the data to help We identify which cities may potentially give our business higher profits?
-
----
+Can we use the data to help us identify which cities may potentially give our business higher profits?
 
 ## 2 - Dataset
 1. **Dataset Overview**:
@@ -39,8 +39,6 @@ We will start by loading the dataset for this task.
   - `x_train`: Population of a city
   - `y_train`: Profit of a restaurant in that city. A negative value for profit indicates a loss.
   - Both `x_train` and `y_train` are numpy arrays.
-
----
 
 ## 3 - Mathematical Concepts
 
@@ -109,27 +107,22 @@ $$
 
 These partial derivatives represent the gradients of the cost function with respect to $b$ and $w$. The gradient descent algorithm uses these gradients to update the parameters in the direction that reduces the cost function.
 
----
+## 4 - Results:
+The model predicts restaurant profit based on population. The final results include the optimized parameters $( \theta_0 )$ and $( \theta_1 )$, along with a graph showing the fit of the linear regression model to the data.
 
-## Results:
-The model predicts restaurant profit based on population. The final results include the optimized parameters \( \theta_0 \) and \( \theta_1 \), along with a graph showing the fit of the linear regression model to the data.
-
+![image](https://github.com/user-attachments/assets/10854f67-89a3-459a-8c27-6a5ca66eae0b)
 ![image](https://github.com/user-attachments/assets/aaa9b2f0-bd74-42d1-a69c-6aeee8b480f4)
 
 
-### Summary
+### 5 - Summary
 
 In summary, this linear regression model predicts the monthly profit for a restaurant based on the population of a city. The goal is to find the values of $w$ (slope) and $b$ (intercept) that minimize the cost function $J(w,b)$. This is achieved by iteratively adjusting the parameters using **gradient descent**, which updates $w$ and $b$ based on the gradients computed from the cost function.
 
----
-
-## Conclusion
+## 6 - Conclusion
 
 This lab demonstrates the application of linear regression and gradient descent to predict restaurant profits based on city population. By fitting the model to the data and minimizing the cost function, We can determine the best parameters for our  model, helping We make data-driven decisions on where to open new restaurant outlets.
 
 
 
-## Results:
-The model predicts restaurant profit based on population. The final results include the optimized parameters \( \theta_0 \) and \( \theta_1 \), along with a graph showing the fit of the linear regression model to the data.
 
 
