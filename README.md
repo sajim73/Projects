@@ -3,7 +3,7 @@
 ## Outline
 1. [Problem Statement](#1---problem-statement)
 2. [Dataset](#2---dataset)
-3. [Refresher on Linear Regression](#3---refresher-on-linear-regression)
+3. [Mathematical Concepts](#3---mathematical-concepts)
 4. [Compute Cost](#4---compute-cost)
 5. [Gradient Descent](#5---gradient-descent)
 6. [Learning Parameters Using Batch Gradient Descent](#6---learning-parameters-using-batch-gradient-descent)
@@ -16,13 +16,23 @@ Suppose you are the CEO of a restaurant franchise and are considering different 
 - We would like to expand our business to cities that may give our restaurant higher profits.
 - The chain already has restaurants in various cities, and we have data for profits and populations from those cities.
 - We also have data on cities that are candidates for a new restaurant. 
-    - For these cities, we have the city population.
+- For these cities, we have the city population.
 
 Can we use the data to help We identify which cities may potentially give our business higher profits?
 
 ---
 
 ## 2 - Dataset
+1. **Dataset Overview**:
+    - The dataset consists of a single feature (population) and a target variable (restaurant profit).
+    - Example data: 
+        | Population | Profit  |
+        |------------|---------|
+        | 6.12       | 17.59   |
+        | 5.18       | 15.14   |
+        | ...        | ...     |
+
+2. **Data Description**
 
 We will start by loading the dataset for this task. 
 - The `load_data()` function loads the data into variables `x_train` and `y_train`.
@@ -32,86 +42,62 @@ We will start by loading the dataset for this task.
 
 ---
 
-## 3 - Refresher on Linear Regression
+## 3 - Mathematical Concepts
 
-In this project, we will fit the linear regression parameters (w, b) to our dataset.
+In this project, we aim to fit the parameters $w$ (slope) and $b$ (intercept) of a linear regression model to our dataset, which involves predicting the monthly profit of a restaurant based on the population of a city.
 
-The model function for linear regression, which maps from `x` (city population) to `y` (monthly profit for that city), is represented as:
+The linear regression model can be expressed as:
 
+$$
+f_{w,b}(x) = w \cdot x + b
+$$
 
-$$f_{w,b}(x) = w \cdot x + b$$
+Where:
+- $x$ is the input feature (city population),
+- $f_{w,b}(x)$ is the predicted monthly profit,
+- $w$ is the slope (parameter we need to find),
+- $b$ is the intercept.
 
+### Training the Model
 
-To train a linear regression model, we need to find the best parameters $( w )$ $(slope)$ and $( b $) (intercept) that fit our dataset.
+To train the model, we need to determine the values of $w$ and $b$ that minimize the difference between the model's predictions and the actual profits in the dataset. This is achieved by using a **cost function** $J(w,b)$, which evaluates how well the model's predictions match the actual data. The goal is to find the values of $w$ and $b$ that minimize the cost function.
 
-To compare how one choice of $( w $) and $( b $) is better or worse than another, we can evaluate it using a cost function $( J(w,b) $).
-
-The choice of $( w $) and $( b $) that fits our data the best is the one that has the smallest cost $( J(w,b) $).
-
-To find the values of $( w $) and $( b $) that minimize the cost function $( J(w,b) $), we can use a method called gradient descent. With each step of gradient descent, our parameters $( w $) and $( b $) get closer to the optimal values that will achieve the lowest cost $( J(w,b) $).
-
-The trained linear regression model can then take the input feature $( x $) (city population) and output a prediction $( f_{w,b}(x) $) (predicted monthly profit for a restaurant in that city).
-
----
-
-## 4 - Compute Cost
-
-Gradient descent involves repeated steps to adjust the value of our parameters $( w $) and $( b $) to gradually minimize the cost $( J(w,b) $).
-
-At each step of gradient descent, it is helpful to compute the cost $( J(w,b) $) as $( w $) and $( b $) are updated to monitor progress.
-
-### Cost Function
-
-For one variable, the cost function for linear regression is defined as:
+The cost function for linear regression is defined as:
 
 $$
 J(w,b) = \frac{1}{2m} \sum_{i=0}^{m-1} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)^2
 $$
 
 Where:
-- $( f_{w,b}(x^{(i)}) = w \cdot x^{(i)} + b )$ is the model's prediction for the $(i^{th})$ city’s profit.
-- $( y^{(i)} )$ is the actual profit recorded in the data for the $(i^{th})$ city.
-- $( m $) is the number of training examples in the dataset.
+- $f_{w,b}(x^{(i)}) = w \cdot x^{(i)} + b$ is the model's prediction for the $i^{th}$ city’s profit,
+- $y^{(i)}$ is the actual profit recorded for the $i^{th}$ city,
+- $m$ is the number of training examples.
 
-### Model Prediction
+The cost function calculates the squared difference between the predicted profit and the actual profit for each training example. The sum of these squared differences is then averaged, and the factor $\frac{1}{2m}$ is included for easier differentiation during optimization.
 
-For linear regression with one variable, the prediction of the model $( f_{w,b} $) for an example $( x^{(i)} $) is represented as:
+### Gradient Descent
 
-$$
-f_{w,b}(x^{(i)}) = w \cdot x^{(i)} + b
-$$
+Once the cost function is defined, we need to minimize it to find the optimal values of $w$ and $b$. This is where **gradient descent** comes in, an iterative optimization algorithm that adjusts the parameters $w$ and $b$ in small steps to reduce the cost.
 
-This is the equation of a line, where $( b $) is the intercept and $( w $) is the slope.
+In each step of gradient descent, we update the parameters using the following formulas:
 
-### Implementation
-
-Complete the `compute_cost()` function to compute the cost $( J(w,b) $).
-
----
-
-## 5 - Gradient Descent
-
-Gradient descent is used to minimize the cost function $( J(w,b) $) by adjusting the parameters $( w $) and $( b $) iteratively. The update rule for gradient descent is:
-
-$$\text{repeat until convergence:}$$
 $$
 b := b - \alpha \frac{\partial J(w,b)}{\partial b}
 $$
+
 $$
 w := w - \alpha \frac{\partial J(w,b)}{\partial w}
 $$
 
 Where:
-- $( \alpha $) is the learning rate (step size).
-- $( \frac{\partial J(w,b)}{\partial b} )$ and $( \frac{\partial J(w,b)}{\partial w} $) are the partial derivatives of the cost function with respect to $( b $) and $( w $), respectively.
+- $\alpha$ is the learning rate (step size),
+- $\frac{\partial J(w,b)}{\partial b}$ and $\frac{\partial J(w,b)}{\partial w}$ are the partial derivatives of the cost function with respect to $b$ and $w$, respectively.
 
----
+These updates move the parameters $w$ and $b$ in the direction that reduces the cost function.
 
-## 6 - Learning Parameters Using Batch Gradient Descent
+#### Computing the Gradients
 
-In this section, we will implement the gradient descent algorithm for learning the parameters $( w $) and $( b $) using batch gradient descent.
-
-The partial derivatives for the cost function are:
+To update the parameters, we need to compute the partial derivatives of the cost function:
 
 $$
 \frac{\partial J(w,b)}{\partial b} = \frac{1}{m} \sum_{i=0}^{m-1} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)
@@ -121,15 +107,29 @@ $$
 \frac{\partial J(w,b)}{\partial w} = \frac{1}{m} \sum_{i=0}^{m-1} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right) x^{(i)}
 $$
 
-Where $( m $) is the number of training examples. We will implement a function called `compute_gradient()` that calculates these partial derivatives.
+These partial derivatives represent the gradients of the cost function with respect to $b$ and $w$. The gradient descent algorithm uses these gradients to update the parameters in the direction that reduces the cost function.
 
-### Next Steps:
-1. Implement the `compute_cost()` function to calculate the cost $( J(w,b) $).
-2. Implement the `compute_gradient()` function to calculate the partial derivatives of the cost function.
-3. Implement the gradient descent algorithm to update the parameters $( w $) and $( b $) and minimize the cost function.
+---
+
+## Results:
+The model predicts restaurant profit based on population. The final results include the optimized parameters \( \theta_0 \) and \( \theta_1 \), along with a graph showing the fit of the linear regression model to the data.
+
+![image](https://github.com/user-attachments/assets/aaa9b2f0-bd74-42d1-a69c-6aeee8b480f4)
+
+
+### Summary
+
+In summary, this linear regression model predicts the monthly profit for a restaurant based on the population of a city. The goal is to find the values of $w$ (slope) and $b$ (intercept) that minimize the cost function $J(w,b)$. This is achieved by iteratively adjusting the parameters using **gradient descent**, which updates $w$ and $b$ based on the gradients computed from the cost function.
 
 ---
 
 ## Conclusion
 
 This lab demonstrates the application of linear regression and gradient descent to predict restaurant profits based on city population. By fitting the model to the data and minimizing the cost function, We can determine the best parameters for our  model, helping We make data-driven decisions on where to open new restaurant outlets.
+
+
+
+## Results:
+The model predicts restaurant profit based on population. The final results include the optimized parameters \( \theta_0 \) and \( \theta_1 \), along with a graph showing the fit of the linear regression model to the data.
+
+
