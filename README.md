@@ -1,128 +1,204 @@
-# Linear Regression (Single Variable)
-
----
-
-## Outline
-1. [Problem Statement](#1---problem-statement)
-2. [Dataset](#2---dataset)
-3. [Mathematical Concepts](#3---mathematical-concepts)
-4. [Results](#4---results)
-5. [Summary](#5---summary)
-6. [Conclusion](#6---conclusion)
+# Machine Learning Specialization Coursera
 
 
-## 1 - Problem Statement
+![](/resources/title-head.png)
 
-Suppose you are the CEO of a restaurant franchise and are considering different cities for opening a new outlet. 
+Contains Solutions and Notes for the [Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction/?utm_medium=coursera&utm_source=home-page&utm_campaign=mlslaunch2022IN) by Andrew NG on Coursera 
 
-- We would like to expand our business to cities that may give our restaurant higher profits.
-- The chain already has restaurants in various cities, and we have data for profits and populations from those cities.
-- We also have data on cities that are candidates for a new restaurant. 
-- For these cities, we have the city population.
+**Note : If you would like to have a deeper understanding of the concepts by understanding all the math required, have a look at [Mathematics for Machine Learning and Data Science](https://github.com/greyhatguy007/Mathematics-for-Machine-Learning-and-Data-Science-Specialization-Coursera)**
 
-Can we use the data to help us identify which cities may potentially give our business higher profits?
+<hr/>
 
-## 2 - Dataset
-1. **Dataset Overview**:
-    - The dataset consists of a single feature (population) and a target variable (restaurant profit).
-    - Example data: 
-        | Population | Profit  |
-        |------------|---------|
-        | 6.12       | 17.59   |
-        | 5.18       | 15.14   |
-        | ...        | ...     |
+## Course 1 : [Supervised Machine Learning: Regression and Classification ](https://www.coursera.org/learn/machine-learning?specialization=machine-learning-introduction)
 
-2. **Data Description**
+- [Week 1](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week1)
 
-We will start by loading the dataset for this task. 
-- The `load_data()` function loads the data into variables `x_train` and `y_train`.
-  - `x_train`: Population of a city
-  - `y_train`: Profit of a restaurant in that city. A negative value for profit indicates a loss.
-  - Both `x_train` and `y_train` are numpy arrays.
+    - [Practice quiz: Regression](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week1/Practice%20quiz%20-%20Regression)
+    - [Practice quiz: Supervised vs unsupervised learning](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week1/Practice%20quiz%20-%20Supervised%20vs%20unsupervised%20learning)
+    - [Practice quiz: Train the model with gradient descent](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week1/Practice%20quiz%20-%20Train%20the%20model%20with%20gradient%20descent)
+  - [Optional Labs](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week1/Optional%20Labs)
+    - [Model Representation](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week1/Optional%20Labs/C1_W1_Lab03_Model_Representation_Soln.ipynb)
+    - [Cost Function](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week1/Optional%20Labs/C1_W1_Lab04_Cost_function_Soln.ipynb)
+    - [Gradient Descent](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week1/Optional%20Labs/C1_W1_Lab05_Gradient_Descent_Soln.ipynb)
 
-## 3 - Mathematical Concepts
+<br/>
 
-In this project, we aim to fit the parameters $w$ (slope) and $b$ (intercept) of a linear regression model to our dataset, which involves predicting the monthly profit of a restaurant based on the population of a city.
+- [Week 2](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2) 
 
-The linear regression model can be expressed as:
+    - [Practice quiz: Gradient descent in practice](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Practice%20quiz%20-%20Gradient%20descent%20in%20practice)
+    - [Practice quiz: Multiple linear regression](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Practice%20quiz%20-%20Multiple%20linear%20regression)
+    - [Optional Labs](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Optional%20Labs)
+      - [Numpy Vectorization](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Optional%20Labs/C1_W2_Lab01_Python_Numpy_Vectorization_Soln.ipynb)
+      - [Multi Variate Regression](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Optional%20Labs/C1_W2_Lab02_Multiple_Variable_Soln.ipynb)
+      - [Feature Scaling](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Optional%20Labs/C1_W2_Lab03_Feature_Scaling_and_Learning_Rate_Soln.ipynb)
+      - [Feature Engineering](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Optional%20Labs/C1_W2_Lab04_FeatEng_PolyReg_Soln.ipynb)
+      - [Sklearn Gradient Descent](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Optional%20Labs/C1_W2_Lab05_Sklearn_GD_Soln.ipynb)
+      - [Sklearn Normal Method](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/Optional%20Labs/C1_W2_Lab05_Sklearn_GD_Soln.ipynb)
+    - [Programming Assignment](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/C1W2A1)
+      - [Linear Regression](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week2/C1W2A1/C1_W2_Linear_Regression.ipynb)
 
-$$
-f_{w,b}(x) = w \cdot x + b
-$$
+<br/>
 
-Where:
-- $x$ is the input feature (city population),
-- $f_{w,b}(x)$ is the predicted monthly profit,
-- $w$ is the slope (parameter we need to find),
-- $b$ is the intercept.
+- [Week 3](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3)
 
-### Training the Model
+    - [Practice quiz: Cost function for logistic regression](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Practice%20quiz%20-%20Cost%20function%20for%20logistic%20regression)
+    - [Practice quiz: Gradient descent for logistic regression](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Practice%20quiz%20-%20Gradient%20descent%20for%20logistic%20regression)
+    - [Optional Labs](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs)
+        - [Classification](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab01_Classification_Soln.ipynb)
+        - [Sigmoid Function](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab02_Sigmoid_function_Soln.ipynb)
+        - [Decision Boundary](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab03_Decision_Boundary_Soln.ipynb)
+        - [Logistic Loss](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab04_LogisticLoss_Soln.ipynb)
+        - [Cost Function](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab05_Cost_Function_Soln.ipynb)
+        - [Gradient Descent](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab06_Gradient_Descent_Soln.ipynb)
+        - [Scikit Learn - Logistic Regression](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab07_Scikit_Learn_Soln.ipynb)
+        - [Overfitting](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab08_Overfitting_Soln.ipynb)
+        - [Regularization](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/Optional%20Labs/C1_W3_Lab09_Regularization_Soln.ipynb)
+    - [Programming Assignment](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/C1W3A1)
+      - [Logistic Regression](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C1%20-%20Supervised%20Machine%20Learning%20-%20Regression%20and%20Classification/week3/C1W3A1/C1_W3_Logistic_Regression.ipynb)
 
-To train the model, we need to determine the values of $w$ and $b$ that minimize the difference between the model's predictions and the actual profits in the dataset. This is achieved by using a **cost function** $J(w,b)$, which evaluates how well the model's predictions match the actual data. The goal is to find the values of $w$ and $b$ that minimize the cost function.
+#### [Certificate Of Completion](https://coursera.org/share/195768f3c1a83e42298d3f61dae99d01)
 
-The cost function for linear regression is defined as:
+<br/>
 
-$$
-J(w,b) = \frac{1}{2m} \sum_{i=0}^{m-1} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)^2
-$$
+## Course 2 : [Advanced Learning Algorithms](https://www.coursera.org/learn/advanced-learning-algorithms?specialization=machine-learning-introduction)
 
-Where:
-- $f_{w,b}(x^{(i)}) = w \cdot x^{(i)} + b$ is the model's prediction for the $i^{th}$ city’s profit,
-- $y^{(i)}$ is the actual profit recorded for the $i^{th}$ city,
-- $m$ is the number of training examples.
+- [Week 1](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week1)
+    - [Practice quiz: Neural networks intuition](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/Practice%20quiz%20-%20Neural%20networks%20intuition)
+    - [Practice quiz: Neural network model](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/Practice%20quiz%20-%20Neural%20network%20model)
+    - [Practice quiz: TensorFlow implementation](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/Practice%20quiz%20-%20TensorFlow%20implementation)
+    - [Practice quiz : Neural Networks Implementation in Numpy](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/Practice-Quiz-Neural-Networks-Implementation-in-python)
+    - [Optional Labs](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/optional-labs)
+      - [Neurons and Layers](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/optional-labs/C2_W1_Lab01_Neurons_and_Layers.ipynb)
+      - [Coffee Roasting](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/optional-labs/C2_W1_Lab02_CoffeeRoasting_TF.ipynb)
+      - [Coffee Roasting Using Numpy](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/optional-labs/C2_W1_Lab02_CoffeeRoasting_TF.ipynb)
+    - [Programming Assignment](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/C2W1A1)
+      - [Neural Networks for Binary Classification](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week1/C2W1A1/C2_W1_Assignment.ipynb)
+  
 
-The cost function calculates the squared difference between the predicted profit and the actual profit for each training example. The sum of these squared differences is then averaged, and the factor $\frac{1}{2m}$ is included for easier differentiation during optimization.
+  <br/>
 
-### Gradient Descent
+- [Week 2](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week2)
+    - [Practice quiz : Neural Networks Training](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/Practice-Quiz-Neural-Network-Training)
+    - [Practice quiz : Activation Functions](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/Practice-Quiz-Activation-Functions)
+    - [Practice quiz : Multiclass Classification](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/Practice-quiz-Multiclass-Classification)
+    - [Practice quiz : Additional Neural Networks Concepts](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/Practice-Quiz-Additional-Neural-Network-Concepts)
+    - [Optional Labs](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/optional-labs)
+        - [RElu](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/optional-labs/C2_W2_Relu.ipynb)
+        - [Softmax](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/optional-labs/C2_W2_SoftMax.ipynb)
+        - [Multiclass Classification](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/optional-labs/C2_W2_Multiclass_TF.ipynb)
+    - [Programming Assignment](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/C2W2A1)
+      - [Neural Networks For Handwritten Digit Recognition - Multiclass](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week2/C2W2A1/C2_W2_Assignment.ipynb)
+    
 
-Once the cost function is defined, we need to minimize it to find the optimal values of $w$ and $b$. This is where **gradient descent** comes in, an iterative optimization algorithm that adjusts the parameters $w$ and $b$ in small steps to reduce the cost.
+<br/>
 
-In each step of gradient descent, we update the parameters using the following formulas:
+- [Week 3](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week3)
+    - [Practice quiz : Advice for Applying Machine Learning](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week3/Practice-Quiz-Advice-for-applying-machine-learning)    
+    - [Practice quiz : Bias and Variance](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week3/practice-quiz-bias-and-variance)
+    - [Practice quiz : Machine Learning Development Process](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week3/practice-quiz-machine-learning-development-process)
+    - [Programming Assignment](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week3/C2W3A1)
+        - [Advice for Applied Machine Learning](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week3/C2W3A1/C2_W3_Assignment.ipynb)
 
-$$
-b := b - \alpha \frac{\partial J(w,b)}{\partial b}
-$$
-
-$$
-w := w - \alpha \frac{\partial J(w,b)}{\partial w}
-$$
-
-Where:
-- $\alpha$ is the learning rate (step size),
-- $\frac{\partial J(w,b)}{\partial b}$ and $\frac{\partial J(w,b)}{\partial w}$ are the partial derivatives of the cost function with respect to $b$ and $w$, respectively.
-
-These updates move the parameters $w$ and $b$ in the direction that reduces the cost function.
-
-#### Computing the Gradients
-
-To update the parameters, we need to compute the partial derivatives of the cost function:
-
-$$
-\frac{\partial J(w,b)}{\partial b} = \frac{1}{m} \sum_{i=0}^{m-1} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)
-$$
-
-$$
-\frac{\partial J(w,b)}{\partial w} = \frac{1}{m} \sum_{i=0}^{m-1} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right) x^{(i)}
-$$
-
-These partial derivatives represent the gradients of the cost function with respect to $b$ and $w$. The gradient descent algorithm uses these gradients to update the parameters in the direction that reduces the cost function.
-
-## 4 - Results
-The model predicts restaurant profit based on population. The final results include the optimized parameters $( \theta_0 )$ and $( \theta_1 )$, along with a graph showing the fit of the linear regression model to the data.
-
-![image](https://github.com/user-attachments/assets/10854f67-89a3-459a-8c27-6a5ca66eae0b)
-![image](https://github.com/user-attachments/assets/aaa9b2f0-bd74-42d1-a69c-6aeee8b480f4)
+<br/>
 
 
-## 5 - Summary
+- [Week 4](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week4)
+    - [Practice quiz : Decision Trees](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week4/practice-quiz-decision-trees)
+    - [Practice quiz : Decision Trees Learning](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week4/practice-quiz-decision-tree-learning)
+    - [Practice quiz : Decision Trees Ensembles](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week4/practice-quiz-tree-ensembles)
+    - [Programming Assignment](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C2%20-%20Advanced%20Learning%20Algorithms/week4/C2W4A1)
+        - [Decision Trees](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C2%20-%20Advanced%20Learning%20Algorithms/week4/C2W4A1/C2_W4_Decision_Tree_with_Markdown.ipynb)
 
-In summary, this linear regression model predicts the monthly profit for a restaurant based on the population of a city. The goal is to find the values of $w$ (slope) and $b$ (intercept) that minimize the cost function $J(w,b)$. This is achieved by iteratively adjusting the parameters using **gradient descent**, which updates $w$ and $b$ based on the gradients computed from the cost function.
+#### [Certificate of Completion](https://coursera.org/share/c9a7766b0c6eab27db2e955376d29bf7)        
 
-## 6 - Conclusion
+<br/>
 
-This lab demonstrates the application of linear regression and gradient descent to predict restaurant profits based on city population. By fitting the model to the data and minimizing the cost function, We can determine the best parameters for our  model, helping We make data-driven decisions on where to open new restaurant outlets.
+## Course 3 : [Unsupervised Learning, Recommenders, Reinforcement Learning](https://www.coursera.org/learn/unsupervised-learning-recommenders-reinforcement-learning?specialization=machine-learning-introduction)
+
+<br/>
+
+- [Week 1](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1)
+    - [Practice quiz : Clustering](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1/Practice%20Quiz%20-%20Clustering)
+    - [Practice quiz : Anomaly Detection](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1/Practice%20Quiz%20-%20Anomaly%20Detection)
+    - [Programming Assignments](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1/C3W1A)
+        - [K means](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1/C3W1A/C3W1A1/C3_W1_KMeans_Assignment.ipynb)
+        - [Anomaly Detection](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week1/C3W1A/C3W1A2/C3_W1_Anomaly_Detection.ipynb)
+
+<br/>
+
+- [Week 2](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2)
+    - [Practice quiz : Collaborative Filtering](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2/Practice%20Quiz%20-%20Collaborative%20Filtering)
+    - [Practice quiz : Recommender systems implementation](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2/Practice%20Quiz%20-%20Recommender%20systems%20implementation)
+    - [Practice quiz : Content-based filtering](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2/Practice%20Quiz%20-%20Content-based%20filtering)
+    - [Programming Assignments](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2/C3W2)
+        - [Collaborative Filtering RecSys](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2/C3W2/C3W2A1/C3_W2_Collaborative_RecSys_Assignment.ipynb)
+        - [RecSys using Neural Networks](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week2/C3W2/C3W2A2/C3_W2_RecSysNN_Assignment.ipynb)
+
+<br/>
+
+- [Week 3](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3)
+    - [Practice quiz : Reinforcement learning introduction](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3/Practice%20Quiz%20-%20Reinforcement%20learning%20introduction)
+    - [Practice Quiz : State-action value function](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3/Practice%20Quiz%20-%20State-action%20value%20function)
+    - [Practice Quiz : Continuous state spaces](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3/Practice%20Quiz%20-%20Continuous%20state%20spaces)
+    - [Programming Assignment](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/tree/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3/C3W3A1)
+        - [Deep Q-Learning - Lunar Lander](https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera/blob/main/C3%20-%20Unsupervised%20Learning%2C%20Recommenders%2C%20Reinforcement%20Learning/week3/C3W3A1/C3_W3_A1_Assignment.ipynb)
+#### [Certificate of Completion](https://coursera.org/share/5bf5ee456b0c806df9b8622067b47ca6)
 
 
+### [Specialization Certificate](https://coursera.org/share/a15ac6426f90924491a542850700a759)
+
+<br/>
+
+<br/>
+
+<hr/>
+
+<div align="center">
+
+                        
+### Stargazers over time
+[![Stargazers over time](https://starchart.cc/greyhatguy007/Machine-Learning-Specialization-Coursera.svg?variant=adaptive)](https://starchart.cc/greyhatguy007/Machine-Learning-Specialization-Coursera)                 
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgreyhatguy007%2FMachine-Learning-Specialization-Coursera&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
+</div>
+
+### Course Review :
+
+This Course is a best place towards becoming a Machine Learning Engineer. Even if you're an expert, many algorithms are covered in depth such as decision trees which may help in further improvement of skills.
+
+**Special thanks to [Professor Andrew Ng](https://www.andrewng.org/) for structuring and tailoring this Course.**
+
+<br/>
+
+<hr/>
+
+#### An insight of what you might be able to accomplish at the end of this specialization :
+
+* <i>Write an unsupervised learning algorithm to **Land the Lunar Lander** Using Deep Q-Learning</i>
+
+    - The Rover was trained to land correctly on the surface, correctly between the flags as indicators after many unsuccessful attempts in learning how to do it.
+    - The final landing after training the agent using appropriate parameters : 
+
+https://user-images.githubusercontent.com/77543865/182395635-703ae199-ba79-4940-86eb-23dd90093ab3.mp4
+
+* <i>Write an algorithm for a **Movie Recommender System**</i>
+    
+    - A movie database is collected based on its genre.
+    - A content based filtering and collaborative filtering algorithm is trained and the movie recommender system is implemented.
+    - It gives movie recommendentations based on the movie genre.
+
+![movie_recommendation](https://user-images.githubusercontent.com/77543865/182398093-c7387754-34a9-4044-b842-0085060c3525.png)
+
+* <i> And Much More !! </i>
 
 
+Concluding, this is a course which I would recommend everyone to take. Not just because you learn many new stuffs, but also the assignments are real life examples which are *exciting to complete*. 
 
+<br/>
+
+**Happy Learning :))**
+
+
+ 
+ 
