@@ -173,9 +173,6 @@ def compute_gradient(X, y, w, b):
     return dw, db
 ```
 
-![image](https://github.com/user-attachments/assets/1e5ff131-b204-4f6e-b738-1f3e424b1bb7)
-
-
 ---
 
 ## Algorithm Training
@@ -190,6 +187,9 @@ def gradient_descent(X, y, w, b, cost_function, gradient_function, alpha, num_it
         b -= alpha * dj_db
     return w, b
 ```
+
+![image](https://github.com/user-attachments/assets/1e5ff131-b204-4f6e-b738-1f3e424b1bb7)
+
 ---
 ## Results
 
