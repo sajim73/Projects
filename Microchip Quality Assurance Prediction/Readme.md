@@ -1,12 +1,24 @@
 # Microchip Quality Assurance Prediction (Regularized Logistic Regression)
 
-### Introduction
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Problem Statement](#problem-statement)
+3. [Visualization of Data](#visualization-of-data)
+4. [Feature Mapping](#feature-mapping)
+5. [Cost Function](#cost-function)
+6. [Gradient Descent](#gradient-descent)
+7. [Algorithm Training](#algorithm-training)
+8. [Results](#results)
+
+---
+
+## Introduction
 
 This project focuses on developing a logistic regression model to classify microchips based on test results. The dataset includes two test scores and a binary label indicating whether a microchip is defective. The goal is to build a model that accurately predicts microchip quality and explores techniques such as feature mapping and regularization to improve classification performance.
 
 ---
 
-### Problem Statement
+## Problem Statement
 
 You are tasked with determining whether microchips should be accepted or rejected based on two QA test results. A dataset with test results and corresponding acceptance decisions is provided to train a logistic regression model.
 
@@ -18,7 +30,7 @@ You are tasked with determining whether microchips should be accepted or rejecte
 
 ---
 
-### Data Visualization
+## Visualization of Data
 
 The dataset contains two test scores (`X_train`) and their corresponding outcomes (`y_train`). The microchips are classified as:
 - `y_train = 1` (Accepted)
@@ -42,7 +54,7 @@ Figure above shows that a linear decision boundary is insufficient for this data
 
 ---
 
-### Feature Mapping
+## Feature Mapping
 
 To create a non-linear decision boundary, we map features to polynomial terms using the function:
 
@@ -69,13 +81,13 @@ def map_feature(x1, x2, degree):
 
 As a result of this mapping, our vector of two features (the scores on two QA tests) has been transformed from 2 into a 27-dimensional vector. A logistic regression classifier trained on this higher-dimension feature vector will have a more complex decision boundary and will be nonlinear when drawn in our 2-dimensional plot. 
 
-#### Example:
+**Example:**
 - Original shape: (118, 2)
 - Transformed shape: (118, 27)
 
 ---
 
-### Cost Function for Regularized Logistic Regression
+## Cost Function
 
 Non-regularized cost function looks like the follows- 
 
@@ -98,7 +110,7 @@ helps prevent overfitting by penalizing large weights. Note that the bias term $
 
 ---
 
-### Gradient for Regularized Logistic Regression
+## Gradient Descent
 
 The gradient of the regularized cost function has two components. The first, $\frac{\partial J(\mathbf{w},b)}{\partial b}$ is a scalar, the other is a vector with the same shape as the parameters $\mathbf{w}$, where the $j^\mathrm{th}$ element is defined as follows:
 
@@ -118,7 +130,7 @@ def compute_cost_reg(X, y, w, b, lambda_):
 
 ---
 
-### Algorithm Training 
+## Algorithm Training 
 
 The training process involves the following steps:
 
@@ -156,7 +168,6 @@ b_init = 0
 w, b = gradient_descent(X_mapped, y_train, w_init, b_init, compute_cost_reg, compute_gradient_reg, alpha, num_iters, lambda_)
 ```
 
-Final Model
 
 After training, the weights () and bias () are optimized to classify microchips effectively. The decision boundary is then visualized to evaluate the model’s performance.
 
@@ -172,6 +183,6 @@ plt.show()
 
 ---
 
-### Results
+## Results
 
 After training, the optimized weights and bias were used to effectively classify microchips, and the decision boundary was visualized to evaluate the model's performance. The visualization demonstrated a non-linear boundary reflecting the model's learned classification. The evaluation metrics showed an accuracy of 85%, with the confusion matrix revealing 50 true positives, 10 false positives, 40 true negatives, and 8 false negatives. These results indicate high accuracy and a balanced trade-off between regularization and model fit, with regularization effectively mitigating overfitting.
