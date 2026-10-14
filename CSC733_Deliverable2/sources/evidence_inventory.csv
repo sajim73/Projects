@@ -1,0 +1,10 @@
+source_id,source_name,source_version,experiment,original_claim,available_data,local_path,limitations
+PAPER,Fruth and Scherzinger 2024,DOI:10.1145/3698816,Original paper,Central performance and update-lag claims,Published figures and discussion,,Not independently executed
+REPO,Original SIGMOD reproduction repository,HEAD observed 58bc1b547ff129c4c7d48f41435ed52cd0dc520b,Experiment scripts,Executable original research protocols,README and scripts,,Modified MMView kernel required
+FIG6,Original reproduction figure 6,Authors' repository main,Push versus pull update lag,Live patching distribution behaviors,do-synchronization-time-patch-boxplot-idle,,Transformed dataset not downloaded
+FIG8,Original reproduction figure 8,Authors' repository main,Throughput over time,Performance during patching,do-rps-time,,Transformed dataset not downloaded
+FIG10,Original reproduction figure 10,Authors' repository main,Tail latencies,Client tail-latency behavior,do-latencies-single-details,,Transformed dataset not downloaded
+DATA,Zenodo research data,DOI:10.5281/zenodo.13729902,Published experimental data,Supports authors' plots,Raw and transformed datasets,,Very large archives; data not downloaded
+RQ1,Proposed group extension,Not implemented,Network impairments,Not tested by original loopback configuration,Requires new executable model,,No results yet
+RQ2,Proposed group extension,Not implemented,Node failure and recovery,Needs new controlled scenarios,Requires new executable model,,No results yet
+RQ3,Proposed group extension,Not implemented,Long-term patch accumulation,Requires direct resource measurement or modeled sensitivity,No new measured data,,Cannot infer accumulation from patch-lag evidence alone
